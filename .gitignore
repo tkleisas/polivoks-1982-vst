@@ -1,0 +1,8 @@
+.sdk/
+dist/
+plugin/Polivoks 1982/build/
+plugin/Polivoks 1982/dist/
+*.wav
+.DS_Store
+__pycache__/
+*.pyc

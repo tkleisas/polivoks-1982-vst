@@ -1,0 +1,17 @@
+{
+  "name": "Polivoks 1982",
+  "manufacturer": "bokontep",
+  "version": "1.0.0",
+  "format": "vst2",
+  "kind": "instrument",
+  "uid": "Bp4d",
+  "numInputs": 0,
+  "numOutputs": 2,
+  "category": "Synth",
+  "file32": "VST/polivoks-1982-arm32.so",
+  "file64": "VST/polivoks-1982-arm64.so",
+  "description": "Independent circuit-informed emulation of the 1982 Formanta Polivoks: two free-running VCOs, K140UD12-style nonlinear state-variable filter, shared duophonic voice, looping ADSRs, four-shape LFO. Extras (velocity, pitch bend, key tracking) default to the 1982 behaviour.",
+  "author": "bokontep",
+  "url": "",
+  "license": "GPL-3.0-or-later"
+}
