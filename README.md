@@ -157,7 +157,8 @@ The model was built from public circuit material, not from another plugin:
 No code was copied from another emulation. The filter, oscillators and envelopes
 are original DSP written for this project. The detailed architecture, parameter
 notes and full limitations are in
-[`plugin/Polivoks 1982/README.md`](plugin/Polivoks%201982/README.md).
+[`plugin/Polivoks 1982/README.md`](plugin/Polivoks%201982/README.md)
+(in the release zips this detailed file is `PLUGIN-README.md`).
 
 The short version of the limits: no real Polivoks was available for
 calibration; the K140UD12 is a behavioural model; envelope/LFO laws and the
