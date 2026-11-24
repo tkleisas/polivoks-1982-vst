@@ -1,0 +1,53 @@
+name: VST3
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "vst3/**"
+      - "plugin/Polivoks 1982/skins/**"
+      - "plugin/Polivoks 1982/ui.json"
+      - "plugin/Polivoks 1982/src/PolivoksDsp.h"
+      - ".github/workflows/vst3.yml"
+
+jobs:
+  build:
+    name: ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux
+          - os: windows-latest
+            platform: windows
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev libfreetype6-dev libx11-dev \
+            libxext-dev libxrandr-dev libxinerama-dev libxcursor-dev libgl1-mesa-dev
+
+      - name: Configure
+        run: cmake -S vst3 -B vst3/build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build vst3/build --config Release --parallel
+
+      - name: Package (Linux)
+        if: runner.os == 'Linux'
+        run: python3 vst3/package.py --version 1.2.0 --build-dir vst3/build --out dist --platform linux
+
+      - name: Package (Windows)
+        if: runner.os == 'Windows'
+        run: python vst3/package.py --version 1.2.0 --build-dir vst3/build --out dist --platform windows
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: polivoks-vst3-${{ matrix.platform }}
+          path: dist/*.zip

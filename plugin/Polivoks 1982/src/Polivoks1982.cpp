@@ -44,7 +44,7 @@ public:
         i.name = "Polivoks 1982";
         i.vendor = "bokontep";
         i.uniqueId = MPC_FOURCC('B', 'p', '4', 'd');   // must match plugin.json "uid"
-        i.version = 1100;
+        i.version = 1200;
         i.isInstrument = true;
         i.numInputs = 0;       // MPC instruments are listed with no audio inputs
         i.numOutputs = 2;

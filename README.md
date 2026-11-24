@@ -18,8 +18,10 @@ Use the assets on the [latest release](https://github.com/tkleisas/polivoks-1982
 
 | Asset | What it is |
 |---|---|
-| `polivoks-1982-1.1.0-mpc.zip` | The MPC plugin folder (`bokontep - VST - Polivoks 1982`) plus install notes and licenses. |
-| `polivoks-1982-1.1.0-linux-vst2.zip` | The Linux desktop VST2 build. |
+| `polivoks-1982-1.2.0-mpc.zip` | The MPC plugin folder (`bokontep - VST - Polivoks 1982`) plus install notes and licenses. |
+| `polivoks-1982-1.2.0-linux-vst2.zip` | The Linux desktop VST2 build (generic host editor). |
+| `polivoks-1982-1.2.0-linux-vst3.zip` | The Linux VST3 with the custom Polivoks panel. |
+| `polivoks-1982-1.2.0-windows-vst3.zip` | The Windows VST3 with the custom Polivoks panel. |
 
 The MPC plugin must be copied into a folder called exactly `VST2 Plugins` at the
 root of a USB drive, SD card, or the MPC's internal drive. On MPC OS 3.10.1+,
@@ -32,10 +34,20 @@ under **External Plugins**.
 *The four-page MPC panel: raised black module plates, Cyrillic section lettering,
 custom Polivoks-style knobs and white paddle switches.*
 
-The desktop build is VST2, with no custom graphical editor: the host shows its
-generic parameter panel. Copy the `Polivoks 1982` folder into `~/.vst` (Linux) or
-the host's VST2 folder. macOS and Windows builds must be made on those operating
-systems with the same SDK; some current DAWs no longer load VST2.
+![Polivoks 1982 VST3 editor](images/polivoks-vst3.png)
+
+*The same panel as a desktop VST3: four pages, live values, program selector and
+right-click choice menus.*
+
+Desktop builds:
+
+- **VST3 (Linux and Windows, recommended for a DAW):** custom MPC-style editor,
+  same engine and 16 programs. See [`vst3/README.md`](vst3/README.md).
+- **VST2:** no custom editor; the host shows its generic parameter panel. Copy
+  the `Polivoks 1982` folder into `~/.vst` (Linux) or the host's VST2 folder.
+  Some current DAWs no longer load VST2.
+
+The VST3 is built with JUCE 7.0.12 (GPLv3) and the VST3 SDK bundled with it.
 
 ## What it is
 
@@ -97,6 +109,17 @@ cd polivoks-1982-vst
 copies the plugin into the SDK, builds the native test library, both ARM
 variants, the desktop VST2, runs the SDK validator and the `host_sim` test, and
 writes the release zips to `dist/`.
+
+The VST3 is a separate CMake/JUCE build:
+
+```bash
+vst3/build.sh                 # Linux/macOS; JUCE is fetched on first run
+vst3\build.ps1                # Windows, Visual Studio 2022
+python3 vst3/package.py        # optional release zip
+```
+
+The VST3 bundle appears in
+`vst3/build/Polivoks1982_artefacts/Release/VST3/Polivoks 1982.vst3`.
 
 Useful environment variables:
 
@@ -178,11 +201,15 @@ is not captured.
 
 ```
 polivoks-1982-vst/
-├── plugin/Polivoks 1982/   # plugin.json, src/, ui.json, detailed README
+├── plugin/Polivoks 1982/   # MPC/VST2 plugin.json, src/, ui.json, skins, README
+├── vst3/                   # JUCE VST3/Standalone build with the custom editor
+├── images/                 # MPC panel screenshot
 ├── LICENSES/               # third-party license texts
-├── tools/make_release.py   # release zip staging
-├── build.sh                # Linux/macOS build
-├── build.ps1               # Windows build
+├── tools/make_release.py   # MPC/VST2 release zip staging
+├── tools/make_skin.py      # regenerates the MPC skin art/TUI
+├── vst3/package.py         # VST3 release zip staging
+├── build.sh                # MPC/VST2 build
+├── build.ps1               # MPC/VST2 Windows build
 ├── LICENSE                 # GPL-3.0
 └── NOTICE.md               # attribution / trademark notes
 ```
@@ -191,6 +218,8 @@ polivoks-1982-vst/
 
 The plugin source and binaries are licensed under the GNU General Public
 License, version 3 or (at your option) any later version. See [`LICENSE`](LICENSE).
+The VST3 uses JUCE 7.0.12 under the GPLv3 option; see
+[`vst3/README.md`](vst3/README.md).
 
 The MPC Plugin SDK is Copyright (c) 2026 inMusic Brands, Inc., MIT-licensed.
 Its license is reproduced in

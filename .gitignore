@@ -6,3 +6,4 @@ plugin/Polivoks 1982/dist/
 .DS_Store
 __pycache__/
 *.pyc
+vst3/build/
