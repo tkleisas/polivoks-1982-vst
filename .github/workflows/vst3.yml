@@ -18,7 +18,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
+          # Build Linux on the older LTS so the binary's GLIBC floor stays
+          # compatible with more distributions.
+          - os: ubuntu-22.04
             platform: linux
           - os: windows-latest
             platform: windows
