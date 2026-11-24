@@ -18,14 +18,19 @@ Use the assets on the [latest release](https://github.com/tkleisas/polivoks-1982
 
 | Asset | What it is |
 |---|---|
-| `polivoks-1982-1.0.0-mpc.zip` | The MPC plugin folder (`bokontep - VST - Polivoks 1982`) plus install notes and licenses. |
-| `polivoks-1982-1.0.0-linux-vst2.zip` | The Linux desktop VST2 build. |
+| `polivoks-1982-1.1.0-mpc.zip` | The MPC plugin folder (`bokontep - VST - Polivoks 1982`) plus install notes and licenses. |
+| `polivoks-1982-1.1.0-linux-vst2.zip` | The Linux desktop VST2 build. |
 
 The MPC plugin must be copied into a folder called exactly `VST2 Plugins` at the
 root of a USB drive, SD card, or the MPC's internal drive. On MPC OS 3.10.1+,
 enable **Preferences → Enhancements (Beta) → Enable Enhancements** and
 **External Plugin Support**, then restart the MPC app. The instrument appears
 under **External Plugins**.
+
+![Polivoks 1982 on the MPC touchscreen](images/polivoks-mpc-skin.png)
+
+*The four-page MPC panel: raised black module plates, Cyrillic section lettering,
+custom Polivoks-style knobs and white paddle switches.*
 
 The desktop build is VST2, with no custom graphical editor: the host shows its
 generic parameter panel. Copy the `Polivoks 1982` folder into `~/.vst` (Linux) or
@@ -64,12 +69,14 @@ one VCA and one pair of envelopes. This plugin follows that architecture.
 - **Master:** tune, glide, volume, voice mode, output AC coupling at 10 Hz.
 
 With the extras at their defaults, the instrument behaves like the 1982 panel.
-The **MORE** page adds key tracking (62%), velocity (0%), pitch bend (0 st) and
-the external pedal approximation (0%). These are off by default.
+The **EXTRAS** areas add key tracking (62%), velocity (0%), pitch bend (0 st)
+and the external pedal approximation (0%). These are off by default.
 
-The MPC skin has five pages: **VOICE**, **FILTER**, **AMP**, **LFO**, **MORE**.
-Eight built-in programs cover the factory test patch, the monster bass, the
-scream, duo lead, trill chord, looping wobble, steam train and FM growl.
+The MPC skin is a custom four-page panel — **VCO**, **FILTER**, **AMP**,
+**LFO** — with metal module plates, Cyrillic section lettering, custom
+Polivoks-style knobs and white paddle switches. Sixteen built-in programs cover
+the factory test patch, the classic Polivoks basses, brass, cello, screams,
+duophonic lead, looping-filter patterns, wind and beacon effects.
 
 ## Build from source
 

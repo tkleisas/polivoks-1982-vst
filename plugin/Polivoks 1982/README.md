@@ -54,18 +54,21 @@ panel. The extras page adds:
 
 ## MPC pages
 
-The MPC skin is generated from `ui.json` (five function-key tabs):
+The MPC skin is a custom four-page panel (`skins/`, generated from
+`ui.json` by `tools/make_skin.py`), styled after the black metal Polivoks
+plates. Each page has four columns of four controls, so every column is one
+hardware Q-Link bank:
 
-| Page | Controls |
+| Page | Sections |
 |---|---|
-| **VOICE** | Cutoff, Resonance, Env Amount, Volume; VCO I wave/octave/level; VCO II wave/octave/detune/level; Noise, Ext Input, X-MOD, Voice Mode, Glide |
-| **FILTER** | Cutoff, Resonance, Env Amount, LFO>VCF; filter ADSR; LP/BP; envelope loop |
-| **AMP** | Amp ADSR; LFO>VCA; Gate On; Amp Loop; Glide, Volume |
-| **LFO** | Shape, Rate, LFO>VCO I, LFO>VCO II, LFO>VCF, LFO>VCA |
-| **MORE** | Master Tune, Key Track, Velocity, Bend Range, Pedal |
+| **VCO** | ГЕНЕРАТОР I: VCO I wave, octave, LFO depth and X-MOD · ГЕНЕРАТОР II: VCO II wave, octave, detune and LFO depth · МИКШЕР: VCO I/II levels and noise · МАСТЕР: voice mode, glide, volume, master tune |
+| **FILTER** | ФИЛЬТР: cutoff, resonance, envelope amount, LFO depth · ФИЛЬТР ЭГ: filter ADSR · РЕЖИМ: LP/BP, envelope loop, key tracking, pedal · ВЫХОД: volume, master tune, velocity, bend range |
+| **AMP** | УСИЛ. ЭГ: amp ADSR · УСИЛИТЕЛЬ: LFO>VCA, gate on, amp loop, volume · ГОЛОС: voice mode, glide, master tune, velocity · ДОПОЛНИТЕЛЬНО: key tracking, bend range, pedal |
+| **LFO** | МОДУЛЯТОР: shape, rate, LFO>VCO I/II · МОДУЛЯЦИЯ: LFO>VCF/VCA, X-MOD, noise · НАСТРОЙКА: master tune, glide, key tracking, velocity · РАСШИРЕНИЕ: bend range, pedal, volume |
 
-The desktop VST2 has **no custom editor**: the host shows its generic parameter
-list. The MPC touch UI is the JSON skin in the plugin folder.
+The four module columns are the four Q-Link groups; the page also shows a
+live value for every control. The desktop VST2 has **no custom editor**: the
+host shows its generic parameter list. The custom panel is the MPC touch skin.
 
 ## Programs
 
@@ -80,6 +83,21 @@ list. The MPC touch UI is the JSON skin in the plugin folder.
 7. **Steam Train** — noise, sample-and-hold filter modulation and looping
    envelopes.
 8. **FM Growl** — VCO II triangle cross-modulating VCO I.
+9. **Dual Saw Bass** — the classic two-saw 16' bass, barely detuned and pushed
+   into the filter.
+10. **Pulse Bass** — the narrow 45% and 8.8% pulses at 32'/16' for a hollow,
+    gritty bass.
+11. **Soviet Brass** — detuned 8' saws with a slow filter swell and a short
+    LFO shimmer.
+12. **Cello Pad** — saw plus triangle, slow bow-like envelopes and a touch of
+    filter vibrato.
+13. **Bandpass Lead** — square/saw through the 6 dB/oct band-pass, high
+    resonance, portamento and LFO tremolo.
+14. **Rhythmic Filter** — looping filter ADSR and Gate On turn a held note into
+    a pulsing sequence.
+15. **Wind** — noise only, band-pass, slow noise LFO; a keyless drone.
+16. **Sputnik** — triangle beacon with square-wave pitch modulation and a
+    filter wobble.
 
 ## Build
 
@@ -102,6 +120,22 @@ If Zig is not on `PATH`, the SDK fetches it on first build, or pass
 plugins/Polivoks 1982/build/bokontep - VST - Polivoks 1982/
 ```
 
+### Regenerating the MPC skin
+
+The custom skin is committed in `skins/`; the build copies it verbatim.
+`ui.json` remains the layout source, and `tools/make_skin.py` regenerates the
+TUI/Q-Links pair plus the panel artwork (needs Pillow). Run it after a build:
+
+```bash
+python3 tools/make_skin.py \
+  --sdk .sdk \
+  --params ".sdk/plugins/Polivoks 1982/build/params.json" \
+  --preview
+```
+
+`--preview` writes 1280 x 628 mockups of all four pages to
+`plugin/Polivoks 1982/build/skin-preview/`.
+
 ### MPC installation
 
 1. Copy the whole `bokontep - VST - Polivoks 1982` folder into a folder called
@@ -122,7 +156,7 @@ VST3; some current DAWs no longer load VST2.
 
 ## Verification and calibration
 
-`host_sim` pass: 19 checks passed, 0 warnings, 0 failures (39 parameters, 8
+`host_sim` pass: 19 checks passed, 0 warnings, 0 failures (39 parameters, 16
 programs, state round-trip, random parameter sweep, 32/512-frame blocks,
 all-notes-off).
 

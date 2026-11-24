@@ -33,6 +33,8 @@ def copy_common(dest: Path, repo: str, version: str, sdk: Path, plugin_readme: P
     shutil.copy2(ROOT / "NOTICE.md", dest / "NOTICE.md")
     shutil.copy2(plugin_readme, dest / "PLUGIN-README.md")
     shutil.copytree(ROOT / "LICENSES", dest / "LICENSES")
+    if (ROOT / "images").is_dir():
+        shutil.copytree(ROOT / "images", dest / "images")
 
     source = f"""Polivoks 1982 {version}
 

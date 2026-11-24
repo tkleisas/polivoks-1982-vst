@@ -44,7 +44,7 @@ public:
         i.name = "Polivoks 1982";
         i.vendor = "bokontep";
         i.uniqueId = MPC_FOURCC('B', 'p', '4', 'd');   // must match plugin.json "uid"
-        i.version = 1000;
+        i.version = 1100;
         i.isInstrument = true;
         i.numInputs = 0;       // MPC instruments are listed with no audio inputs
         i.numOutputs = 2;
@@ -192,6 +192,91 @@ public:
             { kAAttack, 4 }, { kADecay, 300 }, { kASustain, 85 }, { kARelease, 250 },
             { kVolume, -12 }
         });
+
+        // Eight more, covering the classic Polivoks recipes: dual-saw and
+        // pulse basses, brass, cello, band-pass lead, looping filter, wind and
+        // sample-and-hold beacon.
+        program("Dual Saw Bass", {
+            { kVco1Wave, 1 }, { kVco1Oct, 1 }, { kVco1Level, 88 },
+            { kVco2Wave, 1 }, { kVco2Oct, 1 }, { kVco2Detune, 0.10f }, { kVco2Level, 84 },
+            { kCutoff, 420 }, { kResonance, 30 }, { kEnvAmount, 55 },
+            { kFAttack, 4 }, { kFDecay, 260 }, { kFSustain, 0 }, { kFRelease, 160 },
+            { kAAttack, 4 }, { kADecay, 600 }, { kASustain, 72 }, { kARelease, 140 },
+            { kVoiceMode, 0 }, { kVolume, -11 }
+        });
+
+        program("Pulse Bass", {
+            { kVco1Wave, 3 }, { kVco1Oct, 0 }, { kVco1Level, 100 },
+            { kVco2Wave, 4 }, { kVco2Oct, 1 }, { kVco2Detune, -0.08f }, { kVco2Level, 68 },
+            { kCutoff, 330 }, { kResonance, 26 }, { kEnvAmount, 48 },
+            { kFAttack, 4 }, { kFDecay, 190 }, { kFSustain, 0 }, { kFRelease, 120 },
+            { kAAttack, 4 }, { kADecay, 380 }, { kASustain, 76 }, { kARelease, 110 },
+            { kVoiceMode, 0 }, { kVolume, -12 }
+        });
+
+        program("Soviet Brass", {
+            { kVco1Wave, 1 }, { kVco1Oct, 2 }, { kVco1Level, 82 },
+            { kVco2Wave, 1 }, { kVco2Oct, 2 }, { kVco2Detune, 0.18f }, { kVco2Level, 82 },
+            { kCutoff, 900 }, { kResonance, 22 }, { kEnvAmount, 52 },
+            { kFAttack, 130 }, { kFDecay, 900 }, { kFSustain, 38 }, { kFRelease, 420 },
+            { kAAttack, 55 }, { kADecay, 900 }, { kASustain, 86 }, { kARelease, 360 },
+            { kLfoShape, 0 }, { kLfoRate, 5.2f }, { kLfoToVcf, 8 },
+            { kVoiceMode, 1 }, { kVolume, -12 }
+        });
+
+        program("Cello Pad", {
+            { kVco1Wave, 1 }, { kVco1Oct, 2 }, { kVco1Level, 76 },
+            { kVco2Wave, 0 }, { kVco2Oct, 2 }, { kVco2Detune, 0.12f }, { kVco2Level, 54 },
+            { kCutoff, 650 }, { kResonance, 18 }, { kEnvAmount, 28 },
+            { kFAttack, 340 }, { kFDecay, 1500 }, { kFSustain, 44 }, { kFRelease, 900 },
+            { kAAttack, 280 }, { kADecay, 1500 }, { kASustain, 86 }, { kARelease, 800 },
+            { kLfoShape, 0 }, { kLfoRate, 4.6f }, { kLfoToVcf, 10 }, { kLfoToVco1, 4 },
+            { kVoiceMode, 1 }, { kVolume, -13 }
+        });
+
+        program("Bandpass Lead", {
+            { kVco1Wave, 2 }, { kVco1Oct, 2 }, { kVco1Level, 90 },
+            { kVco2Wave, 1 }, { kVco2Oct, 2 }, { kVco2Detune, 0.15f }, { kVco2Level, 60 },
+            { kCutoff, 2400 }, { kResonance, 65 }, { kEnvAmount, 40 }, { kFilterMode, 1 },
+            { kFAttack, 15 }, { kFDecay, 700 }, { kFSustain, 30 }, { kFRelease, 350 },
+            { kAAttack, 8 }, { kADecay, 450 }, { kASustain, 80 }, { kARelease, 300 },
+            { kLfoShape, 0 }, { kLfoRate, 5.4f }, { kLfoToVca, 16 },
+            { kGlide, 260 }, { kVoiceMode, 0 }, { kVolume, -12 }
+        });
+
+        program("Rhythmic Filter", {
+            { kVco1Wave, 1 }, { kVco1Oct, 1 }, { kVco1Level, 80 },
+            { kVco2Wave, 1 }, { kVco2Oct, 1 }, { kVco2Detune, 0.10f }, { kVco2Level, 70 },
+            { kCutoff, 450 }, { kResonance, 60 }, { kEnvAmount, 75 },
+            { kFAttack, 8 }, { kFDecay, 220 }, { kFSustain, 0 }, { kFRelease, 220 }, { kFLoop, 1 },
+            { kAAttack, 5 }, { kADecay, 300 }, { kASustain, 100 }, { kARelease, 300 },
+            { kLfoShape, 2 }, { kLfoRate, 0.4f }, { kLfoToVcf, 15 },
+            { kGateHold, 1 }, { kVoiceMode, 0 }, { kVolume, -13 }
+        });
+
+        program("Wind", {
+            { kVco1Level, 0 }, { kVco2Level, 0 }, { kNoiseLevel, 85 },
+            { kCutoff, 900 }, { kResonance, 55 }, { kFilterMode, 1 },
+            { kLfoShape, 3 }, { kLfoRate, 0.8f }, { kLfoToVcf, 60 },
+            { kFAttack, 900 }, { kFDecay, 5000 }, { kFSustain, 100 }, { kFRelease, 3500 },
+            { kAAttack, 1200 }, { kADecay, 5000 }, { kASustain, 100 }, { kARelease, 3500 },
+            { kGateHold, 1 }, { kVoiceMode, 0 }, { kVolume, -18 }
+        });
+
+        program("Sputnik", {
+            { kVco1Wave, 0 }, { kVco1Oct, 3 }, { kVco1Level, 80 },
+            { kVco2Level, 0 },
+            { kCutoff, 3000 }, { kResonance, 15 }, { kEnvAmount, 20 },
+            { kLfoShape, 1 }, { kLfoRate, 6.5f }, { kLfoToVco1, 25 }, { kLfoToVcf, 15 },
+            { kFAttack, 4 }, { kFDecay, 400 }, { kFSustain, 100 }, { kFRelease, 600 },
+            { kAAttack, 4 }, { kADecay, 400 }, { kASustain, 100 }, { kARelease, 600 },
+            { kGateHold, 1 }, { kVoiceMode, 0 }, { kVolume, -16 }
+        });
+
+        // The host shows program 0's name on a fresh instance; make the
+        // initial parameter state match it rather than the declaration
+        // defaults.
+        setProgram(0);
     }
 
     // ----- lifecycle --------------------------------------------------------

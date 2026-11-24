@@ -1,87 +1,287 @@
 {
-  "kit": "amber",
   "pages": [
     {
-      "name": "VOICE",
+      "name": "VCO",
       "controls": [
-        { "param": "Cutoff", "widget": "knob" },
-        { "param": "Resonance", "widget": "knob" },
-        { "param": "Env Amount", "widget": "knob" },
-        { "param": "Volume", "widget": "fader" },
-        { "param": "VCO1 Wave", "widget": "slider", "overlay": "menu" },
-        { "param": "VCO1 Oct", "widget": "slider", "overlay": "menu" },
-        { "param": "VCO1 Level", "widget": "fader" },
-        { "param": "VCO2 Wave", "widget": "slider", "overlay": "menu" },
-        { "param": "VCO2 Oct", "widget": "slider", "overlay": "menu" },
-        { "param": "VCO2 Detune", "widget": "knob", "polarity": "bipolar" },
-        { "param": "VCO2 Level", "widget": "fader" },
-        { "param": "Noise", "widget": "fader" },
+        {
+          "param": "VCO1 Wave",
+          "widget": "knob",
+          "overlay": "menu"
+        },
+        {
+          "param": "VCO2 Wave",
+          "widget": "knob",
+          "overlay": "menu"
+        },
+        {
+          "param": "VCO1 Level",
+          "widget": "knob"
+        },
+        {
+          "param": "Voice Mode",
+          "widget": "switch"
+        },
+        {
+          "param": "VCO1 Oct",
+          "widget": "knob",
+          "overlay": "menu"
+        },
+        {
+          "param": "VCO2 Oct",
+          "widget": "knob",
+          "overlay": "menu"
+        },
+        {
+          "param": "VCO2 Level",
+          "widget": "knob"
+        },
+        {
+          "param": "Glide",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCO1",
+          "widget": "knob"
+        },
+        {
+          "param": "VCO2 Detune",
+          "widget": "knob",
+          "polarity": "bipolar"
+        },
+        {
+          "param": "Noise",
+          "widget": "knob"
+        },
+        {
+          "param": "Volume",
+          "widget": "knob"
+        },
+        {
+          "param": "X-MOD",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCO2",
+          "widget": "knob"
+        },
         "empty",
-        { "param": "X-MOD", "widget": "knob" },
-        { "param": "Voice Mode", "widget": "switch" },
-        { "param": "Glide", "widget": "knob" }
+        {
+          "param": "Master Tune",
+          "widget": "knob",
+          "polarity": "bipolar"
+        }
       ]
     },
     {
       "name": "FILTER",
       "controls": [
-        { "param": "Cutoff", "widget": "knob" },
-        { "param": "Resonance", "widget": "knob" },
-        { "param": "Env Amount", "widget": "knob" },
-        { "param": "LFO>VCF", "widget": "knob" },
-        { "param": "Filt Attack", "widget": "fader" },
-        { "param": "Filt Decay", "widget": "fader" },
-        { "param": "Filt Sustain", "widget": "fader" },
-        { "param": "Filt Release", "widget": "fader" },
-        { "param": "Filter Mode", "widget": "switch" },
-        { "param": "Filt Loop", "widget": "switch" },
-        "empty",
-        "empty"
+        {
+          "param": "Cutoff",
+          "widget": "knob"
+        },
+        {
+          "param": "Filt Attack",
+          "widget": "knob"
+        },
+        {
+          "param": "Filter Mode",
+          "widget": "switch"
+        },
+        {
+          "param": "Volume",
+          "widget": "knob"
+        },
+        {
+          "param": "Resonance",
+          "widget": "knob"
+        },
+        {
+          "param": "Filt Decay",
+          "widget": "knob"
+        },
+        {
+          "param": "Filt Loop",
+          "widget": "switch"
+        },
+        {
+          "param": "Master Tune",
+          "widget": "knob",
+          "polarity": "bipolar"
+        },
+        {
+          "param": "Env Amount",
+          "widget": "knob"
+        },
+        {
+          "param": "Filt Sustain",
+          "widget": "knob"
+        },
+        {
+          "param": "Key Track",
+          "widget": "knob"
+        },
+        {
+          "param": "Velocity",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCF",
+          "widget": "knob"
+        },
+        {
+          "param": "Filt Release",
+          "widget": "knob"
+        },
+        {
+          "param": "Pedal",
+          "widget": "knob"
+        },
+        {
+          "param": "Bend Range",
+          "widget": "knob"
+        }
       ]
     },
     {
       "name": "AMP",
       "controls": [
-        { "param": "Amp Attack", "widget": "fader" },
-        { "param": "Amp Decay", "widget": "fader" },
-        { "param": "Amp Sustain", "widget": "fader" },
-        { "param": "Amp Release", "widget": "fader" },
-        { "param": "LFO>VCA", "widget": "knob" },
-        { "param": "Gate On", "widget": "switch" },
-        { "param": "Amp Loop", "widget": "switch" },
-        "empty",
-        { "param": "Glide", "widget": "knob" },
-        { "param": "Volume", "widget": "fader" },
-        "empty",
+        {
+          "param": "Amp Attack",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCA",
+          "widget": "knob"
+        },
+        {
+          "param": "Voice Mode",
+          "widget": "switch"
+        },
+        {
+          "param": "Key Track",
+          "widget": "knob"
+        },
+        {
+          "param": "Amp Decay",
+          "widget": "knob"
+        },
+        {
+          "param": "Gate On",
+          "widget": "switch"
+        },
+        {
+          "param": "Glide",
+          "widget": "knob"
+        },
+        {
+          "param": "Bend Range",
+          "widget": "knob"
+        },
+        {
+          "param": "Amp Sustain",
+          "widget": "knob"
+        },
+        {
+          "param": "Amp Loop",
+          "widget": "switch"
+        },
+        {
+          "param": "Master Tune",
+          "widget": "knob",
+          "polarity": "bipolar"
+        },
+        {
+          "param": "Pedal",
+          "widget": "knob"
+        },
+        {
+          "param": "Amp Release",
+          "widget": "knob"
+        },
+        {
+          "param": "Volume",
+          "widget": "knob"
+        },
+        {
+          "param": "Velocity",
+          "widget": "knob"
+        },
         "empty"
       ]
     },
     {
       "name": "LFO",
       "controls": [
-        { "param": "LFO Shape", "widget": "switch" },
-        { "param": "LFO Rate", "widget": "knob" },
-        { "param": "LFO>VCO1", "widget": "knob" },
-        { "param": "LFO>VCO2", "widget": "knob" },
-        { "param": "LFO>VCF", "widget": "knob" },
-        { "param": "LFO>VCA", "widget": "knob" },
-        "empty",
-        "empty"
-      ]
-    },
-    {
-      "name": "MORE",
-      "controls": [
-        { "param": "Master Tune", "widget": "knob", "polarity": "bipolar" },
-        { "param": "Key Track", "widget": "knob" },
-        { "param": "Velocity", "widget": "knob" },
-        { "param": "Bend Range", "widget": "knob" },
-        { "param": "Pedal", "widget": "knob" },
-        { "widget": "text", "text": "EXTRAS: OFF = 1982" },
-        "empty",
+        {
+          "param": "LFO Shape",
+          "widget": "knob",
+          "overlay": "menu"
+        },
+        {
+          "param": "LFO>VCF",
+          "widget": "knob"
+        },
+        {
+          "param": "Master Tune",
+          "widget": "knob",
+          "polarity": "bipolar"
+        },
+        {
+          "param": "Bend Range",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO Rate",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCA",
+          "widget": "knob"
+        },
+        {
+          "param": "Glide",
+          "widget": "knob"
+        },
+        {
+          "param": "Pedal",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCO1",
+          "widget": "knob"
+        },
+        {
+          "param": "X-MOD",
+          "widget": "knob"
+        },
+        {
+          "param": "Key Track",
+          "widget": "knob"
+        },
+        {
+          "param": "Volume",
+          "widget": "knob"
+        },
+        {
+          "param": "LFO>VCO2",
+          "widget": "knob"
+        },
+        {
+          "param": "Noise",
+          "widget": "knob"
+        },
+        {
+          "param": "Velocity",
+          "widget": "knob"
+        },
         "empty"
       ]
     }
   ],
-  "style": { "background": "ff141210", "accent": "ffc98a3a", "text": "fff2e6d0", "muted": "ff8a8175" }
+  "style": {
+    "background": "ff121110",
+    "accent": "ffd24a2a",
+    "text": "fff1e7d6",
+    "muted": "ff9c9488"
+  }
 }
